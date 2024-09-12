@@ -47,7 +47,7 @@
     
     <!-- Image Upload Section -->
     <div id="upload-section" style="display:none;">
-        <input type="file" id="imageInput">
+        <input type="file" id="imageInput" accept="image/*">
         <button onclick="uploadImage()">Upload Image</button>
         <div class="progress-bar" id="progress-bar"><div></div></div>
         <div id="output"></div>
@@ -168,6 +168,8 @@
                         });
 
                         fetchImages();  // Fetch images after uploading
+                        progressBar.style.width = '0%';  // Reset progress bar
+                        imageInput.value = '';  // Clear file input
                     }
                 );
             } catch (error) {
